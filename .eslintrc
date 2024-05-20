@@ -1,0 +1,8 @@
+{
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "func-names": "warn",
+    "no-alert": "warn",
+    "no-console": "warn"
+  }
+}
