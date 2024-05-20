@@ -4,6 +4,7 @@ import Button from '@/components/Button';
 import YouTubePlayer from '@/lib/YoutubePlayer';
 import FeatureCard from './FeatureCard';
 import FeedbackCard from './FeedbackCard';
+import feedbacks from '@/content/feedback';
 
 export default function Home() {
 	return (
@@ -42,25 +43,9 @@ export default function Home() {
 				</div>
 			</section>
 
-			{/* Customers Section */}
-			<section className='mx-auto container'>
-				<div className='flex flex-col py-16 space-y-6'>
-					<h2 className='text-6xl font-semibold text-white'>
-						Whom we have build{' '}
-						<span className='bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-700'>
-							Custom PCs for?
-						</span>
-					</h2>
-
-					<div className='flex flex-col'>
-						<div></div>
-					</div>
-				</div>
-			</section>
-
 			{/* Process Section */}
 			<section className='mx-auto container'>
-				<div className='flex flex-col py-16 space-y-6'>
+				<div className='flex flex-col space-y-6'>
 					<h2 className='text-6xl font-semibold text-white'>
 						What is our{' '}
 						<span className='bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-700'>
@@ -77,30 +62,40 @@ export default function Home() {
 									</div>
 								</div>
 								<div className='w-1 items-center bg-[linear-gradient(0deg,_rgba(0,0,0,1)_0%,_rgba(245,158,11,0.6)_50%,_rgba(0,0,0,1)_100%)] flex flex-col h-96 justify-between'>
-									<div className='rounded-full bg-neutral-600 p-1 w-5 h-5'>
-										<div className='rounded-full bg-black w-full h-full' />
+									<div className='w-8 h-8'>
+										<Image
+											width={32}
+											height={32}
+											alt='build icon'
+											src={'/icons/analyze.svg'}
+										/>
 									</div>
 								</div>
 								<div className='w-1 items-center bg-[linear-gradient(0deg,_rgba(0,0,0,1)_0%,_rgba(245,158,11,0.6)_50%,_rgba(0,0,0,1)_100%)] flex flex-col h-96 justify-between'>
-									<div className='w-6 h-6'>
+									<div className='w-8 h-8'>
 										<Image
-											width={40}
-											height={40}
+											width={32}
+											height={32}
 											alt='build icon'
-											src={'/icons/build.svg'}
+											src={'/icons/tools.svg'}
 										/>
 									</div>
 								</div>
 								<div className='w-1 items-center bg-[linear-gradient(0deg,_rgba(0,0,0,1)_0%,_rgba(245,158,11,0.6)_50%,_rgba(0,0,0,1)_100%)] flex flex-col h-96'>
-									<div className='rounded-full bg-neutral-600 p-1 w-5 h-5'>
-										<div className='rounded-full bg-black w-full h-full' />
+									<div className='w-8 h-8'>
+										<Image
+											width={32}
+											height={32}
+											alt='build icon'
+											src={'/icons/test.svg'}
+										/>
 									</div>
 								</div>
 								<div className='w-1 items-center bg-[linear-gradient(0deg,_rgba(0,0,0,1)_0%,_rgba(245,158,11,0.6)_50%,_rgba(0,0,0,1)_100%)] flex flex-col h-96 justify-between'>
-									<div className='w-6 h-6'>
+									<div className='w-8 h-8'>
 										<Image
-											width={40}
-											height={40}
+											width={32}
+											height={32}
 											alt='build icon'
 											src={'/icons/package.svg'}
 										/>
@@ -110,7 +105,7 @@ export default function Home() {
 						</div>
 
 						<div>
-							<div className='h-96 space-y-3'>
+							<div className='h-96 space-y-3 mt-1'>
 								<h3 className='text-white text-4xl font-medium'>
 									Discuss your requirements
 								</h3>
@@ -127,7 +122,7 @@ export default function Home() {
 									compromising on quality.
 								</p>
 							</div>
-							<div className='h-96 space-y-3'>
+							<div className='h-96 space-y-3 mt-1'>
 								<h3 className='text-white text-4xl font-medium'>
 									Analyze the components
 								</h3>
@@ -145,7 +140,7 @@ export default function Home() {
 								</p>
 								<Button className='text-xl px-6'>Check Our Team</Button>
 							</div>
-							<div className='h-96 space-y-3'>
+							<div className='h-96 space-y-3 '>
 								<h3 className='text-white text-4xl font-medium'>
 									Build the Custom PC
 								</h3>
@@ -237,7 +232,7 @@ export default function Home() {
 
 			{/* Feedbacks Section */}
 			<section className='mx-auto container'>
-				<div className='flex flex-col py-16 space-y-6'>
+				<div className='flex flex-col my-16 space-y-6 relative overflow-hidden'>
 					<h2 className='text-6xl font-semibold text-white'>
 						What do our clients{' '}
 						<span className='bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-700'>
@@ -246,12 +241,46 @@ export default function Home() {
 					</h2>
 
 					<div className='grid grid-cols-3 gap-6 py-6'>
-						<FeedbackCard
-							icon=''
-							name=''
-							feedback=''
-							designation=''
-						/>
+						{feedbacks.map((feedback, index) => (
+							<FeedbackCard
+								key={index}
+								{...feedback}
+							/>
+						))}
+					</div>
+					<div className='h-80 flex items-end py-8 justify-center w-full absolute bg-gradient-to-t from-black left-0 bottom-0'>
+						<Button>View More</Button>
+					</div>
+				</div>
+			</section>
+
+			{/* Customers Section */}
+			<section className='mx-auto container'>
+				<div className='flex flex-col py-16 space-y-6'>
+					<h2 className='text-6xl font-semibold text-white'>
+						Our Top{' '}
+						<span className='bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-700'>
+							Custom PCs
+						</span>
+					</h2>
+
+					<div className='flex flex-col'>
+						<p className='text-neutral-400  text-2xl font-medium'>
+							We have built Gaming and Productivity PCs for clients ranging from
+							youtubers to entrepreneurs and brought their dreams into reality.
+						</p>
+						<div className='grid grid-cols-3 gap-6 mx-auto my-6'>
+							{Array.from(Array(6).keys()).map((_, index) => (
+								<div className='' key={index}>
+									<Image
+										height={320}
+										width={320}
+										alt='pc image'
+										src={`/assets/pc${index + 1}.jpg`}
+									/>
+								</div>
+							))}
+						</div>
 					</div>
 				</div>
 			</section>

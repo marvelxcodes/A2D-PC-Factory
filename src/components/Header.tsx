@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const Header = () => {
 	return (
-		<div className='fixed top-0 h-20 w-screen border-b border-neutral-700 backdrop-blur-lg'>
+		<div className='fixed top-0 h-20 z-50 w-screen border-b border-neutral-700 backdrop-blur-lg'>
 			<div className='container mx-auto flex h-full px-3'>
 				<div className='flex items-center flex-1 gap-x-3'>
 					<Image
